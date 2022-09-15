@@ -1,8 +1,9 @@
-import express from "express";
+import express, { Response, Request } from "express";
+import { handler } from "./testApi";
 
 const app = express();
-
-app.get("/hello", (req, res) => {
+const test = handler(1, 2);
+app.get("/", (req: Request, res: Response) => {
   res.send("hello testing");
 });
 

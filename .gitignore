@@ -1,1 +1,8 @@
-node_modules
+# node modeles for libraries
+node_modules/
+
+# dist compile js files
+dist
+
+# Mac file that holds folder info
+.DS_Store
