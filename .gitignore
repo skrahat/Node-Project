@@ -6,3 +6,6 @@ dist
 
 # Mac file that holds folder info
 .DS_Store
+
+# coverage
+coverage
