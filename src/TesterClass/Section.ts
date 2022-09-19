@@ -1,19 +1,32 @@
-import { Student } from "./types";
-export class building {
-  buildingAge: number;
-  buildingName: string;
-  NewStudent: Student;
+import { Student, TeacherType } from './types';
+import { Teacher } from './Teacher';
+export class Section {
+    sectionSize: number;
+    sectionName: string;
+    classCaptain: Student;
+    classTeacher!: TeacherType;
 
-  constructor(buildingAge: number, buildingName: string, NewStudent: Student) {
-    this.buildingAge = buildingAge;
-    this.buildingName = buildingName;
-    this.NewStudent = NewStudent;
-  }
+    constructor(
+        sectionSize: number,
+        sectionName: string,
+        classCaptain: Student
+    ) {
+        this.sectionSize = sectionSize;
+        this.sectionName = sectionName;
+        this.classCaptain = classCaptain;
+    }
 
-  public get student(): Student {
-    return this.student;
-  }
-  public set student(student: Student) {
-    this.student = student;
-  }
+    public get classCaptainName(): string {
+        return this.classCaptain.name;
+    }
+    public set classCaptainName(name: string) {
+        this.classCaptain.name = name;
+    }
+    public initTeacher(nameOfTeacher: string) {
+        this.classTeacher = new Teacher(nameOfTeacher);
+    }
+    public admitStudent(nameOfStudent: string) {
+        //this.classTeacher = new Teacher(nameOfTeacher);
+        this.sectionSize++;
+    }
 }

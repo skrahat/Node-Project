@@ -3,3 +3,6 @@ export interface Student {
   age: number;
   admitted?: boolean;
 }
+export interface TeacherType {
+  name: string;
+}

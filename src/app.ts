@@ -1,9 +1,8 @@
-import express, { Response, Request } from "express";
-import { apiTest } from "./testApi";
+import express, { Response, Request } from 'express';
 
 const app = express();
-app.get("/", (req: Request, res: Response) => {
-  res.send("A");
+app.get('/', (req: Request, res: Response) => {
+  res.send('A');
 });
 export {};
-app.listen(3000, () => console.log("Express Server running"));
+app.listen(3000, () => console.log('Express Server running'));
