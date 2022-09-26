@@ -4,16 +4,18 @@ export class Section {
     sectionSize: number;
     sectionName: string;
     classCaptain: Student;
-    classTeacher!: TeacherType;
+    classTeacher: TeacherType;
 
     constructor(
         sectionSize: number,
         sectionName: string,
-        classCaptain: Student
+        classCaptain: Student,
+        classTeacher: TeacherType
     ) {
         this.sectionSize = sectionSize;
         this.sectionName = sectionName;
         this.classCaptain = classCaptain;
+        this.classTeacher = classTeacher;
     }
 
     public get classCaptainName(): string {
@@ -25,6 +27,9 @@ export class Section {
     public initTeacher(nameOfTeacher: string) {
         this.classTeacher = new Teacher(nameOfTeacher);
     }
+    // public get classTeacher(): TeacherType {
+    //     return this.classTeacher;
+    // }
     public admitStudent(nameOfStudent: string) {
         //this.classTeacher = new Teacher(nameOfTeacher);
         this.sectionSize++;

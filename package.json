@@ -1,6 +1,6 @@
 {
     "name": "nodeproject",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "",
     "main": "dist/app.js",
     "scripts": {
@@ -10,7 +10,7 @@
         "test": "jest",
         "coverage": "jest --coverage --silent=false",
         "prepare": "husky install",
-        "pre-commit": "lint-staged",
+        "pre-commit": "",
         "pre-push": "npm run test"
     },
     "repository": {
