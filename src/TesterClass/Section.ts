@@ -5,6 +5,7 @@ export class Section {
     sectionName: string;
     classCaptain: Student;
     classTeacher: TeacherType;
+    size?: number;
 
     constructor(
         sectionSize: number,
@@ -23,6 +24,12 @@ export class Section {
     }
     public set classCaptainName(name: string) {
         this.classCaptain.name = name;
+    }
+    public set setSize(value: number) {
+        this.size = value;
+    }
+    public get getSize(): number {
+        return this.size || 0;
     }
     public initTeacher(nameOfTeacher: string) {
         this.classTeacher = new Teacher(nameOfTeacher);
