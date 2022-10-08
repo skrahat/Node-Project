@@ -8,11 +8,21 @@ import express, { Response, Request } from 'express';
 // app.listen(3000, () => console.log('Express Server running'));
 
 const app = () => {
-    const testArray = {
-        a: 'a',
-        b: 'b',
+    type Point = { a: number; b: number; c: number };
+    type out = {
+        a: number;
     };
-    console.log(testArray);
+    const testArray: Point = {
+        a: 1,
+        b: 2,
+        c: 3,
+    };
+
+    const answer: Partial<Point> = {
+        a: 2,
+    };
+
+    console.log(typeof answer);
     console.log(Object.keys(testArray));
 };
 app();
