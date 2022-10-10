@@ -1,5 +1,6 @@
 import { Section } from '../../src/TesterClass/Section';
 import { Student, TeacherType } from '../../src/TesterClass/types';
+import { BaseUserClass } from '../../src/User/BaseUserClass';
 //jest.mock('../../src/TesterClass/Section');
 
 describe('Section test', () => {
@@ -7,6 +8,25 @@ describe('Section test', () => {
 
     afterAll(() => {
         jest.restoreAllMocks();
+    });
+    const testBaseUser = {
+        firstName: 'sk',
+        lastName: 'rahat',
+        email: 'test',
+        id: 'a121w13',
+        phoneNumber: 2222,
+        dob: '1996-10-15',
+    };
+    it('BaseUserClass test', () => {
+        const baseUserClass: BaseUserClass = new BaseUserClass(
+            'sk',
+            'rahat',
+            'test',
+            'a121w13',
+            2222,
+            '1996-10-15'
+        );
+        expect(baseUserClass.lastName).toBe('rahat');
     });
     it('Class test', () => {
         const tempStudent: Student = {
