@@ -1,7 +1,7 @@
 import { IBaseUserClass } from './type';
 
 export class BaseUserClass {
-    private _userName: string;
+    private _userID: string;
     private _firstName: string;
     private _lastName: string;
     private _email: string;
@@ -9,18 +9,18 @@ export class BaseUserClass {
     private _password: string;
 
     constructor(baseUserClassObj: IBaseUserClass) {
-        this._userName = baseUserClassObj.userName;
+        this._userID = baseUserClassObj.userID;
         this._firstName = baseUserClassObj.firstName;
         this._lastName = baseUserClassObj.lastName;
         this._email = baseUserClassObj.email;
         this._id = baseUserClassObj.id;
         this._password = baseUserClassObj.password;
     }
-    public get userName(): string {
-        return this._userName;
+    public get userID(): string {
+        return this._userID;
     }
     public set userName(value: string) {
-        this._userName = value;
+        this._userID = value;
     }
     public get firstName(): string {
         return this._firstName;
