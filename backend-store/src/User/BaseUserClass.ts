@@ -1,26 +1,26 @@
+import { IBaseUserClass } from './type';
+
 export class BaseUserClass {
+    private _userName: string;
     private _firstName: string;
     private _lastName: string;
     private _email: string;
     private _id: string;
-    private _phoneNumber: number;
-    private _dob: string;
-    private _dateJoined?: string | undefined;
+    private _password: string;
 
-    constructor(
-        firstName: string,
-        lastName: string,
-        email: string,
-        id: string,
-        phoneNumber: number,
-        dob: string //dateJoined: string
-    ) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.id = id;
-        this.phoneNumber = phoneNumber;
-        this.dob = dob; //this.dateJoined = dateJoined;
+    constructor(baseUserClassObj: IBaseUserClass) {
+        this._userName = baseUserClassObj.userName;
+        this._firstName = baseUserClassObj.firstName;
+        this._lastName = baseUserClassObj.lastName;
+        this._email = baseUserClassObj.email;
+        this._id = baseUserClassObj.id;
+        this._password = baseUserClassObj.password;
+    }
+    public get userName(): string {
+        return this._userName;
+    }
+    public set userName(value: string) {
+        this._userName = value;
     }
     public get firstName(): string {
         return this._firstName;
@@ -46,22 +46,10 @@ export class BaseUserClass {
     public set id(value: string) {
         this._id = value;
     }
-    public get phoneNumber(): number {
-        return this._phoneNumber;
+    public get password(): string {
+        return this._password;
     }
-    public set phoneNumber(value: number) {
-        this._phoneNumber = value;
-    }
-    public get dob(): string {
-        return this._dob;
-    }
-    public set dob(value: string) {
-        this._dob = value;
-    }
-    public get dateJoined(): string | undefined {
-        return this._dateJoined;
-    }
-    public set dateJoined(value: string | undefined) {
-        this._dateJoined = value;
+    public set password(value: string) {
+        this._password = value;
     }
 }
