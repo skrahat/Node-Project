@@ -15,9 +15,6 @@ export const schema: JSONSchemaType<RequestPayload> = {
         email: {
             type: 'string',
         },
-        id: {
-            type: 'string',
-        },
         password: {
             type: 'string',
         },
@@ -36,7 +33,6 @@ export const schema: JSONSchemaType<RequestPayload> = {
         'firstName',
         'lastName',
         'email',
-        'id',
         'password',
         'phoneNumber',
         'dob',
@@ -44,12 +40,16 @@ export const schema: JSONSchemaType<RequestPayload> = {
     ],
     type: 'object',
 };
+export type IResponse = {
+    header: string;
+    body: string;
+    statusCode: number;
+};
 export type RequestPayload = {
     userID: string;
     firstName: string;
     lastName: string;
     email: string;
-    id: string;
     password: string;
     phoneNumber: number;
     dob: string;

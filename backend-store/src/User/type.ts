@@ -3,7 +3,6 @@ export type IBaseUserClass = {
     firstName: string;
     lastName: string;
     email: string;
-    id: string;
     password: string;
 };
 export interface ICustomerUserClass extends IBaseUserClass {

@@ -4,19 +4,18 @@ import { createNewUser } from '../../src/Api/CreateNewUser';
 jest.setTimeout(1000000);
 
 describe('sample test', () => {
-    it('test one', async () => {
+    it('duplicate user', async () => {
         const input = {
             userID: 'ar12',
-            firstName: 'sk',
+            firstName: 'skrr',
             lastName: 'rahat',
-            email: 'test@test.ca',
-            id: '123',
-            password: 'test',
+            email: 'test2@test.ca',
+            password: 'test1',
             phoneNumber: 12345,
             dob: '1996-10-15',
             dateJoined: '2022-10-15',
         };
         const test = await createNewUser(input);
-        expect(test.body).toBe('Success');
+        expect(test.body).toBe('Duplicate user');
     });
 });

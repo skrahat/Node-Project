@@ -1,19 +1,23 @@
 import { ICustomerUserClass } from '../User/type';
 // import lodash from 'lodash';
 import { MongoClient } from 'mongodb';
-import { config } from 'dotenv';
+import * as dotenv from 'dotenv';
 import Ajv from 'ajv';
-import { schema } from './type';
+import { schema, IResponse } from './type';
+//import { ObjectId } from 'mongodb';
+dotenv.config();
 
-config();
-
-export const createNewUser = async (body: ICustomerUserClass): Promise<any> => {
-    const { uri } = process.env;
+export const createNewUser = async (
+    body: ICustomerUserClass
+): Promise<IResponse> => {
+    //const uri = process.env.NEXT_PUBLIC_URI;
+    const uri =
+        'mongodb+srv://dev:devmongodb@projecthermesdev.cdmsiyp.mongodb.net/?retryWrites=true&w=majority';
 
     let response = {
         header: '',
         body: '',
-        statusCode: 400,
+        statusCode: 500,
     };
     let mongoClient;
 
@@ -27,16 +31,32 @@ export const createNewUser = async (body: ICustomerUserClass): Promise<any> => {
         mongoClient = new MongoClient(uri || '');
         await mongoClient.connect();
         const db = await mongoClient.db('Accounts');
-        const usersDb = await db.collection('Users');
-        const duplicate = await usersDb.findOne(body);
-        response = duplicate;
+        const usersPool = await db.collection('Users');
+        const currentUser = {
+            //_id: new ObjectId(body.email),
+            email: body.email,
+            password: body.password,
+        };
+
+        const duplicate = await usersPool.findOne({ email: body.email });
+
         if (!duplicate) {
-            await usersDb.insertOne(body);
+            console.log('duplicate pass');
+            await usersPool.insertOne(currentUser);
+            const usersInfo = await db.collection('UserInfo');
+            await usersInfo.insertOne(body);
+
             response.body = 'Successfully added user';
             response.statusCode = 200;
+        } else {
+            response.body = 'Duplicate user';
+            response.statusCode = 409;
         }
-    } finally {
+        await mongoClient.close();
+    } catch (err) {
+        console.log(`could not execute createNewUser: ${err}`);
+        response.body = `internal error`;
     }
-    await mongoClient.close();
+
     return response;
 };
