@@ -5,7 +5,6 @@ export class BaseUserClass {
     private _firstName: string;
     private _lastName: string;
     private _email: string;
-    private _id: string;
     private _password: string;
 
     constructor(baseUserClassObj: IBaseUserClass) {
@@ -13,7 +12,6 @@ export class BaseUserClass {
         this._firstName = baseUserClassObj.firstName;
         this._lastName = baseUserClassObj.lastName;
         this._email = baseUserClassObj.email;
-        this._id = baseUserClassObj.id;
         this._password = baseUserClassObj.password;
     }
     public get userID(): string {
@@ -39,12 +37,6 @@ export class BaseUserClass {
     }
     public set email(value: string) {
         this._email = value;
-    }
-    public get id(): string {
-        return this._id;
-    }
-    public set id(value: string) {
-        this._id = value;
     }
     public get password(): string {
         return this._password;
