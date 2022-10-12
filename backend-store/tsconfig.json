@@ -1,24 +1,37 @@
 {
     "compilerOptions": {
         "target": "ES2018",
-        "allowJs": true,
+        //"allowJs": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
+        //"allowSyntheticDefaultImports": true,
         //"strict": true,
+        "importHelpers": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "strictNullChecks": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
-        "module": "commonjs",
+        "module": "CommonJS",
         "moduleResolution": "node",
+        "suppressImplicitAnyIndexErrors": true,
+        "sourceMap": true,
+        "declaration": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "alwaysStrict": true,
         "resolveJsonModule": true,
-        "isolatedModules": false,
-        "noEmit": false,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        //"isolatedModules": false,
+        //"noEmit": false,
         //"jsx": "react-jsx"
-        "rootDir": "./src",
-        "outDir": "./dist"
+        //"types": [],
+        //"rootDir": "./src",
+        "outDir": "./dist",
+        "types": ["jest", "node", "module", "@types/jest"]
     },
-    "include": ["src"]
+    "include": ["src/**/*"]
 }
 // {
 //   "compilerOptions": {

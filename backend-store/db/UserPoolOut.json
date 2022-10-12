@@ -1,0 +1,14 @@
+{
+    "id": "123",
+    "user": {
+        "userID": "ar11",
+        "firstName": "sk",
+        "lastName": "rahat",
+        "email": "test@test.ca",
+        "id": "123",
+        "password": "test",
+        "phoneNumber": 12345,
+        "dob": "1996-10-15",
+        "dateJoined": "2022-10-15"
+    }
+}
